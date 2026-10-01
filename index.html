@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عيد ميلاد تبتب ✨</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.3/confetti.browser.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1b0f15;--bg2:#2a1620;--gold:#e2bc6b;--rose:#e9b0a2;--blush:#f8d9e0;--cream:#fbf0e4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at top,var(--bg2),var(--bg) 70%);color:var(--cream);font-family:'Amiri',serif;font-size:19px;line-height:1.9;overflow-x:hidden}
+h1,h2,.script{font-family:'Aref Ruqaa',serif}
+.gold{background:linear-gradient(100deg,#b98a2e,#f5dd9a 40%,#e9b0a2 70%,#d4a24a);-webkit-background-clip:text;background-clip:text;color:transparent}
+section{position:relative;padding:5rem 1.25rem;max-width:960px;margin:0 auto}
+h2{font-size:clamp(1.8rem,5vw,2.6rem);text-align:center;margin:0 0 2rem}
+#fall{position:fixed;inset:0;pointer-events:none;z-index:0}
+.f{position:absolute;top:-30px;animation:fall linear forwards;opacity:.8}
+@keyframes fall{to{transform:translateY(110vh) rotate(300deg)}}
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:1}
+.hero h1{font-size:clamp(2.6rem,10vw,5.5rem);line-height:1.3;margin:0;animation:rise 1.6s cubic-bezier(.2,.8,.2,1) both}
+.hero .en{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.1rem,3.4vw,1.7rem);color:var(--rose);margin-top:1rem;direction:ltr;animation:rise 1.6s .5s both}
+.hero .names{margin-top:1.5rem;font-size:1.3rem;color:var(--blush);animation:rise 1.6s 1s both}
+@keyframes rise{from{opacity:0;transform:translateY(24px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.scroll{margin-top:3rem;color:var(--gold);animation:bob 2s infinite}
+@keyframes bob{50%{transform:translateY(8px)}}
+.paper{background:linear-gradient(160deg,#fbf0e4,#f3dcc8);color:#4a2b2f;padding:2.2rem 1.6rem;border-radius:6px;box-shadow:0 0 0 1px #e2bc6b,0 0 0 8px #fbf0e4,0 0 0 9px #e2bc6b,0 30px 70px rgba(0,0,0,.55);position:relative;font-size:1.25rem;line-height:2.1;max-width:720px;margin:0 auto}
+.paper:before{content:"❦";position:absolute;top:-22px;left:50%;transform:translateX(-50%);background:var(--bg);color:var(--gold);padding:0 .6rem;font-size:1.6rem}
+.paper p{margin:0;word-break:break-word}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(226,188,107,.35);border-radius:18px;padding:1.6rem;text-align:center;backdrop-filter:blur(6px)}
+.grid2{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.btn{font-family:'Aref Ruqaa',serif;font-size:1.15rem;padding:.6rem 1.6rem;border-radius:999px;border:1px solid var(--gold);background:linear-gradient(135deg,#e2bc6b,#e9b0a2);color:#3a1f25;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(226,188,107,.35)}
+.btn:focus-visible,textarea:focus-visible{outline:2px solid var(--blush);outline-offset:3px}
+/* candle */
+.candle{width:34px;height:110px;margin:0 auto;position:relative;border-radius:6px;background:linear-gradient(90deg,#f8d9e0,#fff,#f0c2cc)}
+.flame{position:absolute;top:-38px;left:50%;width:22px;height:38px;margin-left:-11px;border-radius:50% 50% 50% 50%/65% 65% 35% 35%;background:radial-gradient(circle at 50% 70%,#fff6c8,#ffc94d 55%,#ff8a3d);transform:scale(0);transform-origin:bottom;transition:transform .5s;filter:drop-shadow(0 0 16px #ffc94d)}
+.lit .flame{transform:scale(1);animation:flick .15s infinite alternate}
+@keyframes flick{to{transform:scale(1.06,.95) rotate(2deg)}}
+.glow{position:absolute;inset:-40px;border-radius:50%;background:radial-gradient(circle,rgba(255,201,77,.35),transparent 65%);opacity:0;transition:opacity .8s;pointer-events:none}
+.lit .glow{opacity:1}
+/* cake */
+#slice{transition:transform .9s cubic-bezier(.3,1.4,.5,1)}
+.cut #slice{transform:translate(38px,22px) rotate(8deg)}
+textarea{width:100%;min-height:90px;background:rgba(0,0,0,.25);border:1px solid rgba(226,188,107,.45);border-radius:12px;color:var(--cream);padding:.8rem;font:inherit;resize:vertical}
+.wish-out{min-height:2.5rem;color:var(--gold);font-family:'Aref Ruqaa',serif;font-size:1.3rem;margin-top:1rem;transition:all 1.2s}
+.moment{position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+.moment:hover{transform:translateY(-4px);border-color:var(--gold)}
+.moment:before{content:"";position:absolute;inset:0;background:radial-gradient(240px circle at var(--x,50%) var(--y,50%),rgba(226,188,107,.22),transparent 70%);opacity:0;transition:opacity .3s}
+.moment:hover:before{opacity:1}
+.moment .ic{font-size:2rem}
+.end{text-align:center;padding-bottom:7rem}
+.end p{font-size:clamp(2.2rem,8vw,4rem);margin:0}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="fall" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="script text-xl" style="color:var(--gold)">✨ ✨ ✨</div>
+  <h1 class="script gold">كل عام وأنتِ<br>بألف خير</h1>
+  <p class="en">Happy Birthday to our dearest Tabtab &amp; Tayoba ✨</p>
+  <p class="names">تبتب • طيوبة</p>
+  <a href="#letter" class="scroll" aria-label="انزلي للأسفل">⌄</a>
+</header>
+
+<section id="letter">
+  <h2 class="script gold">رسالة من القلب</h2>
+  <div class="paper">
+    <p>تبتب وطيوبهههه الغاليههه كل عامم وانتِ بالف خيرررر احلىى يوم ميلادج كلج خير بيومج مطرت الدنيا والجو اشتعللل لانج خير النا ولهل دنيااا مبدئياً خلينا نتفق على شي انو الاكتبه وكلشي قليل بحقججج من وكفات من سند الييي والله والله اشياء لاخويه ماحجيها اجي عليج هيج وهيج شتكولين شكراً شكراً شكراً لان عرفتج ماكول اخت وذني سوالفف لا السندددد طيوبهه انشاء الله من كل كلبي انو اشوفججج انجح من عندي ومتصيرين بلي صرت بي انو ماكو تعين ماكو هلامور ياربي ياربي بس تتخرجين مو تعين حتى لو خاص المهم متضلين بلا وكل عام وانتِ بخيررر طيوبههه تعيشينننن وتنسين الكليه توليي 🤣❤️ شي كلش بسيط بحقج بس ياريت يفرحج وتحبي</p>
+  </div>
+</section>
+
+<section id="play">
+  <h2 class="script gold">مفاجآتج</h2>
+  <div class="grid2">
+
+    <div class="card" id="candleCard">
+      <h3 class="script text-2xl mb-6" style="color:var(--blush)">أشعلي الشمعة</h3>
+      <div class="relative" style="height:170px;padding-top:50px">
+        <div class="glow"></div>
+        <div class="candle"><div class="flame"></div></div>
+      </div>
+      <p id="candleMsg" class="my-3 text-base" style="color:var(--rose)">اضغطي على الشمعة</p>
+      <button class="btn" id="candleBtn">أشعلي</button>
+    </div>
+
+    <div class="card" id="cakeCard">
+      <h3 class="script text-2xl mb-2" style="color:var(--blush)">اقطعي الكيكة</h3>
+      <svg viewBox="0 0 220 170" width="100%" style="max-width:260px;margin:0 auto;display:block" aria-label="كيكة">
+        <ellipse cx="110" cy="152" rx="100" ry="12" fill="#000" opacity=".3"/>
+        <rect x="30" y="95" width="160" height="55" rx="10" fill="#f0c2cc"/>
+        <rect x="45" y="55" width="130" height="45" rx="10" fill="#fbf0e4"/>
+        <path d="M45 72q10 14 20 0t20 0 20 0 20 0 20 0 20 0 5 6V60a8 8 0 0 0-8-8H53a8 8 0 0 0-8 8z" fill="#e2bc6b"/>
+        <path d="M30 112q10 14 20 0t20 0 20 0 20 0 20 0 20 0 20 0 10 6v-12H30z" fill="#fbf0e4"/>
+        <g fill="#e9546b"><circle cx="75" cy="50" r="6"/><circle cx="110" cy="46" r="6"/><circle cx="145" cy="50" r="6"/></g>
+        <g id="slice"><path d="M110 98 L190 98 L190 148 Q150 154 110 148z" fill="#fff" opacity="0"/><path d="M122 100 L176 100 L176 146 L122 146z" fill="#f7d6df" stroke="#e2bc6b" stroke-width="1.5" opacity="0" id="sl"/></g>
+      </svg>
+      <button class="btn mt-3" id="cakeBtn">اقطعي</button>
+    </div>
+
+    <div class="card" style="grid-column:1/-1">
+      <h3 class="script text-2xl mb-3" style="color:var(--blush)">تمني أمنية</h3>
+      <textarea id="wish" placeholder="اكتبي أمنيتج هنا..." aria-label="أمنيتج"></textarea>
+      <button class="btn mt-4" id="wishBtn">أرسليها للنجوم ✨</button>
+      <div class="wish-out" id="wishOut" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="moments">
+  <h2 class="script gold">كلمات حلوة عنج</h2>
+  <div class="grid2" id="moments-grid">
+    <div class="card moment"><div class="ic">🌸</div><h3 class="script text-2xl">طيبتج</h3><p class="text-base">قلبج أبيض وحضورج يريّح كل من حولج.</p></div>
+    <div class="card moment"><div class="ic">✨</div><h3 class="script text-2xl">حضورج</h3><p class="text-base">وين ما تكونين، يصير المكان أحلى وأدفأ.</p></div>
+    <div class="card moment"><div class="ic">😄</div><h3 class="script text-2xl">ضحكتج</h3><p class="text-base">سوالفج تفرّح، وضحكتج تنسّي الهموم.</p></div>
+    <div class="card moment"><div class="ic">🎓</div><h3 class="script text-2xl">نجاحج</h3><p class="text-base">إن شاء الله أشوفج ناجحة ومتخرجة وفرحانة.</p></div>
+  </div>
+</section>
+
+<section class="end">
+  <p class="script gold">شكراً لانج بحياتي ❤️</p>
+  <button class="btn mt-10" id="finale">🎉 مفاجأة أخيرة</button>
+</section>
+
+<script>
+// falling hearts & stars
+const sym=['✨','🤍','💗','⭐','🌸'];
+function drop(){
+  const e=document.createElement('span');e.className='f';
+  e.textContent=sym[Math.random()*sym.length|0];
+  e.style.left=Math.random()*100+'vw';
+  e.style.fontSize=(10+Math.random()*16)+'px';
+  e.style.animationDuration=(7+Math.random()*7)+'s';
+  document.getElementById('fall').appendChild(e);
+  setTimeout(()=>e.remove(),15000);
+}
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches) setInterval(drop,650);
+
+const gold=['#e2bc6b','#f5dd9a','#e9b0a2','#f8d9e0','#fff'];
+function burst(o={}){confetti(Object.assign({particleCount:120,spread:90,origin:{y:.65},colors:gold},o))}
+
+// candle
+const cc=document.getElementById('candleCard');
+function toggleCandle(){
+  const on=cc.classList.toggle('lit');
+  document.getElementById('candleMsg').textContent=on?'تمنّي أمنية بقلبج... 🤍':'اضغطي على الشمعة';
+  document.getElementById('candleBtn').textContent=on?'أطفئي':'أشعلي';
+  if(on) burst({particleCount:40,spread:50,scalar:.8});
+}
+document.getElementById('candleBtn').onclick=toggleCandle;
+cc.querySelector('.candle').onclick=toggleCandle;
+cc.querySelector('.candle').style.cursor='pointer';
+
+// cake
+const ck=document.getElementById('cakeCard');
+document.getElementById('cakeBtn').onclick=()=>{
+  ck.classList.add('cut');
+  document.getElementById('sl').setAttribute('opacity','1');
+  burst({particleCount:180,spread:120});
+  setTimeout(()=>burst({angle:60,origin:{x:0,y:.7}}),300);
+  setTimeout(()=>burst({angle:120,origin:{x:1,y:.7}}),300);
+  document.getElementById('cakeBtn').textContent='بالعافية 🍰';
+};
+
+// wish
+document.getElementById('wishBtn').onclick=()=>{
+  const v=document.getElementById('wish').value.trim();
+  const out=document.getElementById('wishOut');
+  if(!v){out.textContent='اكتبي أمنيتج أول ✨';return}
+  out.textContent='وصلت أمنيتج للنجوم: «'+v+'» 🌟';
+  document.getElementById('wish').value='';
+  confetti({particleCount:90,spread:360,startVelocity:20,gravity:.4,ticks:200,shapes:['star'],colors:gold,origin:{y:.6}});
+};
+
+// hover glow follows cursor
+document.querySelectorAll('.moment').forEach(c=>c.addEventListener('pointermove',e=>{
+  const r=c.getBoundingClientRect();
+  c.style.setProperty('--x',(e.clientX-r.left)+'px');
+  c.style.setProperty('--y',(e.clientY-r.top)+'px');
+}));
+
+// finale
+document.getElementById('finale').onclick=()=>{
+  const end=Date.now()+2500;
+  (function f(){burst({particleCount:6,angle:60,spread:60,origin:{x:0}});burst({particleCount:6,angle:120,spread:60,origin:{x:1}});if(Date.now()<end)requestAnimationFrame(f)})();
+};
+// welcome burst
+window.addEventListener('load',()=>setTimeout(()=>burst({particleCount:80,origin:{y:.4}}),900));
+</script>
+</body>
+</html>
